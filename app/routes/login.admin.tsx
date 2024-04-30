@@ -19,7 +19,7 @@ const LoginAdmin = () => {
     e.preventDefault();
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement >) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 

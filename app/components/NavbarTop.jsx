@@ -6,12 +6,7 @@ const NavbarTop = () => {
 			<nav className="p-2 bg-white md:p-6 flex  sm:flex-row justify-between">
 				<div className="flex flex-row">
 					<div>
-						<img
-							src={Logo}
-							className="w-[7.5vw] md:w-[6.5vw]"
-							alt="img"
-							alt="img"
-						/>
+						<img src={Logo} className="w-[7.5vw] md:w-[6.5vw]" alt="img" />
 					</div>
 					<div className="pt-0 pl-2 flex flex-col md:pl-4 text-customBlack">
 						<span>

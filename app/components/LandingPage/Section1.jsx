@@ -1,4 +1,3 @@
-import React from 'react'
 import LongButton from './LongButton'
 import call from '../../assets/call.svg'
 import mail from '../../assets/mail.svg'
@@ -7,7 +6,7 @@ import mail from '../../assets/mail.svg'
 const Section1 = () => {
   return (
     <div 
-    className={`h-[70vw] sm:h-[50vw] w-[100%] flex flex-col text-customBlack justify-around font1 bg-hero bg-no-repeat bg-cover border-x-orange-800 px-[3vw]`}>
+    className={'h-[70vw] sm:h-[50vw] w-[100%] flex flex-col text-customBlack justify-around font1 bg-hero bg-no-repeat bg-cover border-x-orange-800 px-[3vw]'}>
         {/* email nd number */}
         <div className='flex flex-row justify-end w-[100%] gap-[3vw] mt-[3vw]'>
           <LongButton icon={mail} content={"amupro@amu.ac.in"}/>

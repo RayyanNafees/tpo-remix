@@ -31,6 +31,7 @@ const Section3 = () => {
 
 			<div className="flex flex-row w-[100%] items-center justify-center">
 				<button
+					type="button"
 					onClick={handleScrollLeft}
 					className="w-[3vw] h-[10vw] rotate-180 flex justify-center items-center mt-[3.5vw]"
 				>
@@ -47,15 +48,10 @@ const Section3 = () => {
 						<div className="flex flex-row ">
 							{CompanyIcon.map((data, index) => (
 								<div
-									key={index}
+									key={crypto.randomUUID()}
 									className="bg-customBlue h-[15vw] w-[15vw] sm:h-[8.5vw] sm:w-[8.5vw] rounded-full items-center flex justify-center shadow3 mr-[6vw] p-[4.5vw] sm:p-[2vw]"
 								>
-									<img
-										src={data.icon}
-										className="w-[3.5vw]"
-										alt="img"
-										alt="img"
-									/>
+									<img src={data.icon} className="w-[3.5vw]" alt="img" />
 								</div>
 							))}
 						</div>
@@ -63,6 +59,7 @@ const Section3 = () => {
 				</div>
 
 				<button
+					type="button"
 					onClick={handleScrollRight}
 					className="w-[3vw] h-[10vw] flex justify-center items-center mt-[3.5vw]"
 				>
@@ -74,19 +71,4 @@ const Section3 = () => {
 };
 
 export default Section3;
-{
-	/* <div className='flex flex-row scroll mt-[3.5vw]'>
-{CompanyIcon.map((data, index) => (
-  <div key={index} className='bg-customBlue h-[15vw] w-[15vw] sm:h-[9vw] sm:w-[9vw] rounded-full items-center flex justify-center shadow3 mr-[6vw] p-[4.5vw] sm:p-[2vw]'>
-    <img src={data.icon} alt="img"/>
-  </div>
-))}
-</div>
-<div className='flex flex-row scroll mt-[3.5vw]'>
-{CompanyIcon.map((data, index) => (
-  <div key={index} className='bg-customBlue h-[15vw] w-[15vw] sm:h-[9vw] sm:w-[9vw] rounded-full items-center flex justify-center shadow3 mr-[6vw] p-[4.5vw] sm:p-[2vw]'>
-    <img src={data.icon} alt="img"/>
-  </div>
-))}
-</div> */
-}
+

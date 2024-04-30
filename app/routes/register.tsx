@@ -113,7 +113,9 @@ export default function RegisterStudent() {
     }
   };
 
-  const handleConfirmPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleConfirmPasswordChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const newConfirmPassword = event.target.value;
     if (newConfirmPassword.includes(' ')) {
       event.preventDefault();
@@ -142,7 +144,9 @@ export default function RegisterStudent() {
     return /\s/.test(password);
   };
 
-  const handleMobileNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleMobileNumberChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const newMobileNumber = event.target.value;
     setMobileNumber(newMobileNumber);
     setIsMobileNumberTouched(true);

@@ -3,7 +3,7 @@ import InputForm from '~/components/LoginRegister/Forms';
 import NavbarTopLogin from '~/components/LoginRegister/NavbarTopLogin';
 import { Link } from 'react-router-dom';
 import { CautionIcon } from '~/components/heroicons/caution';
-import './loginRegister.css';
+import '~/styles/loginRegister.css';
 import { useMemo } from 'react';
 
 const activeCls =

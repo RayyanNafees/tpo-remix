@@ -32,12 +32,7 @@ const DirectorsDesk = () => {
 		<div className="h-fit w-[100%] flex flex-row justify-around p-[4vw] sm:py-[4vw] bg-customBlue text-white">
 			{!showImage && (
 				<div className="w-[50%] items-center justify-center flex">
-					<img
-						src={Desk}
-						className="w-[25vw] rounded-[8px]"
-						alt="img"
-						alt="img"
-					/>
+					<img src={Desk} className="w-[25vw] rounded-[8px]" alt="img" />
 				</div>
 			)}
 
@@ -48,12 +43,7 @@ const DirectorsDesk = () => {
 
 				{showImage && (
 					<div className="mb-[4vw]">
-						<img
-							src={Desk}
-							className="w-[70vw] rounded-[1vw] "
-							alt="img"
-							alt="img"
-						/>
+						<img src={Desk} className="w-[70vw] rounded-[1vw] " alt="img" />
 					</div>
 				)}
 
@@ -61,6 +51,7 @@ const DirectorsDesk = () => {
 					{truncatedText}
 				</p>
 				<button
+					type="button"
 					onClick={handleReadMore}
 					className="text-[2vw] sm:text-[1.2vw] font-semibold mt-[1vw]"
 				>
