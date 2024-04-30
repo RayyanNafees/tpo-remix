@@ -39,8 +39,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Useful Links
 
-- Login & Landing Page: [Figma](https://www.figma.com/file/b5YmCc91p1x9LV0laoUBQB/TPO-website?type=design&node-id=0%3A1&mode=design&t=bmIR98w1leq6FpuD-1)
-
+- [Figma](https://www.figma.com/file/b5YmCc91p1x9LV0laoUBQB/TPO-website?type=design&node-id=0%3A1&mode=design&t=bmIR98w1leq6FpuD-1)
+- [Postman Collection](https://app.getpostman.com/join-team?invite_code=4939113ea6efeb4389aa80fcec55a64b&target_code=3a79235af2fac24b8870692cee597020)
 - [Remix Vite Docs](https://remix.run/docs/en/main/guides/vite)
 
 - [Tailwind UI](https://tailwind-template-santosharron.netlify.app)
