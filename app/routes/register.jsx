@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import NavbarTopRegister from '~/components/LoginRegister/NavbarTopRegister';
 import InputForm from '~/components/LoginRegister/Forms';
-import { Link } from '@remix-run/react';
+import { Branches } from '~/components/LoginRegister/BranchData';
+import { Link } from 'react-router-dom';
 import { CautionIcon } from '~/components/heroicons/caution';
 
 const activeCls =
@@ -22,11 +23,11 @@ export default function RegisterStudent() {
     graduationYear: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
@@ -44,14 +45,14 @@ export default function RegisterStudent() {
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [mobileNumberValid, setMobileNumberValid] = useState(true);
   const [emailValid, setEmailValid] = useState(true);
-  const [passwordErrors, setPasswordErrors] = useState<string[]>([]);
+  const [passwordErrors, setPasswordErrors] = useState([]);
   const [mobileNumberError, setMobileNumberError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [isPasswordTouched, setIsPasswordTouched] = useState(false);
   const [isMobileNumberTouched, setIsMobileNumberTouched] = useState(false);
   const [isEmailTouched, setIsEmailTouched] = useState(false);
 
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePasswordChange = (event) => {
     const newPassword = event.target.value;
     if (newPassword.includes(' ')) {
       event.preventDefault();
@@ -75,7 +76,7 @@ export default function RegisterStudent() {
     setConfirmPasswordVisible(!confirmPasswordVisible);
   };
 
-  const validatePassword = (newPassword: string) => {
+  const validatePassword = (newPassword) => {
     const errors = [];
 
     if (newPassword.length < 8) {
@@ -104,7 +105,7 @@ export default function RegisterStudent() {
     }
   };
 
-  const validateConfirmPassword = (newConfirmPassword: string) => {
+  const validateConfirmPassword = (newConfirmPassword) => {
     if (newConfirmPassword !== password) {
       setConfirmPasswordValid(false);
     } else {
@@ -113,7 +114,7 @@ export default function RegisterStudent() {
   };
 
   const handleConfirmPasswordChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event
   ) => {
     const newConfirmPassword = event.target.value;
     if (newConfirmPassword.includes(' ')) {
@@ -128,23 +129,23 @@ export default function RegisterStudent() {
     }
   };
 
-  const hasLowercaseAndUppercase = (password: string) => {
+  const hasLowercaseAndUppercase = (password) => {
     return /[a-z]/.test(password) && /[A-Z]/.test(password);
   };
 
-  const hasDigitAndSpecialChar = (password: string) => {
+  const hasDigitAndSpecialChar = (password) => {
     return (
       /\d/.test(password) &&
       /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)
     );
   };
 
-  const hasSpace = (password: string) => {
+  const hasSpace = (password) => {
     return /\s/.test(password);
   };
 
   const handleMobileNumberChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event
   ) => {
     const newMobileNumber = event.target.value;
     setMobileNumber(newMobileNumber);
@@ -157,7 +158,7 @@ export default function RegisterStudent() {
     }
   };
 
-  const validateMobileNumber = (newMobileNumber: string) => {
+  const validateMobileNumber = (newMobileNumber) => {
     if (newMobileNumber.length !== 10) {
       setMobileNumberValid(false);
       setMobileNumberError('Mobile number must be 10 digits long.');
@@ -167,7 +168,7 @@ export default function RegisterStudent() {
     }
   };
 
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = (event) => {
     const newEmail = event.target.value;
     setEmail(newEmail);
     setIsEmailTouched(true);
@@ -179,7 +180,7 @@ export default function RegisterStudent() {
     }
   };
 
-  const validateEmail = (newEmail: string) => {
+  const validateEmail = (newEmail) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(newEmail)) {
       setEmailValid(false);
@@ -199,13 +200,13 @@ export default function RegisterStudent() {
         </h1>
         <div className='flex justify-center items-center font-montserrat text-[2.3vw] md:text-[1.5vw] font-semibold space-x-[4vw] pt-[2vw] m-auto'>
           <Link to='/register'>
-            <button type='button' className={tabCls}>
+            <button type='button' className={activeCls}>
               Student
             </button>
           </Link>
           <Link to='/register/recruiter'>
-            <button type='button' className={activeCls}>
-              Recuiter
+            <button type='button' className={tabCls}>
+              Recruiter
             </button>
           </Link>
         </div>
@@ -275,9 +276,7 @@ export default function RegisterStudent() {
             <p className='text-white mb-[1vh] text-left text-[3vw] md:text-[1vw]'>
               Course of Study
             </p>
-            <select className='rounded-lg p-[1.5vw] md:p-[0.8vw] text-[2vw] md:text-[1vw]'>
-              <option value='BE'>Computer Engineering</option>
-            </select>
+            <Branches />
           </div>
           <InputForm
             label='Graduation Year'
@@ -316,8 +315,7 @@ export default function RegisterStudent() {
               {passwordErrors.map((error, index) => (
                 <div
                   key={crypto.randomUUID()}
-                  className='error text-customWhite text-left flex font-montserrat py-2 md:py-2 text-[2vw] sm:text-[1.2vw] md:text-[1vw] font-semibold
-									'
+                  className='error text-customWhite text-left flex font-montserrat py-2 md:py-2 text-[2vw] sm:text-[1.2vw] md:text-[1vw] font-semibold'
                 >
                   <div>
                     <CautionIcon />

@@ -7,9 +7,8 @@ import Section2 from "../components/LandingPage/Section2"
 import Whoweare from "../components/LandingPage/Whoweare";
 import DirectorsDesk from "../components/LandingPage/DirectorsDesk";
 import ChartSection from "../components/LandingPage/ChartSection";
-import type { MetaFunction } from "@remix-run/node";
 
-export const meta: MetaFunction = () => {
+export const meta = () => {
 	return [
 		{ title: "Training & Placement | AMU" },
 		{ name: "description", content: "Welcome to Remix!" },

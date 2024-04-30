@@ -7,9 +7,10 @@ import {
 	ScrollRestoration,
 } from "@remix-run/react";
 import stylesheet from "~/styles/tailwind.css?url";
-
+import index from '~/styles/index.css?url'
 export const links: LinksFunction = () => [
 	{ rel: "stylesheet", href: stylesheet },
+	{ rel: "stylesheet", href: index },
 ];
 export function Layout({ children }: { children: React.ReactNode }) {
 	return (

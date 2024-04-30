@@ -3,23 +3,25 @@ import InputForm from '~/components/LoginRegister/Forms';
 import NavbarTopLogin from '~/components/LoginRegister/NavbarTopLogin';
 import { Link } from 'react-router-dom';
 import { CautionIcon } from '~/components/heroicons/caution';
+import '~/styles/loginRegister.css';
+import { useMemo } from 'react';
 
 const activeCls =
   'flex-1 text-center box-shadow bg-customBlue rounded-lg border-[0.1vw] border-customBlue text-white w-[12vw] h-[6vw] md:w-[8vw] md:h-[4vw]';
 const tabCls =
   'flex-1 text-center box-shadow bg-white rounded-lg border-[0.1vw] border-customBlue text-customBlue w-[12vw] h-[6vw] transition duration-300 ease-in-out hover:bg-customBlue hover:text-white md:w-[8vw] md:h-[4vw]';
 
-const LoginAdmin = () => {
+const LoginStudent = () => {
   const [values, setValues] = useState({
     username: '',
     password: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
@@ -30,10 +32,10 @@ const LoginAdmin = () => {
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [errors, setErrors] = useState<string[]>([]);
+  const [errors, setErrors] = useState([]);
   const [isTouched, setIsTouched] = useState(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event) => {
     const newPassword = event.target.value;
     if (newPassword.includes(' ')) {
       event.preventDefault();
@@ -53,7 +55,7 @@ const LoginAdmin = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  const validatePassword = (newPassword: string) => {
+  const validatePassword = (newPassword) => {
     const errors = [];
 
     if (newPassword.length < 8) {
@@ -69,6 +71,11 @@ const LoginAdmin = () => {
     }
   };
 
+  const errors_with_key = useMemo(
+    () => errors.map((err) => ({ id: crypto.randomUUID(), msg: err })),
+    [errors]
+  );
+
   return (
     <>
       <NavbarTopLogin />
@@ -76,24 +83,22 @@ const LoginAdmin = () => {
         <h1 className='text-center text-[2.6vw] sm:text-[2vw] font-montserrat text-customBlack font-bold'>
           Login As
         </h1>
-        <div>
-          <div className='flex justify-center items-center font-montserrat text-[2.3vw] md:text-[1.5vw] font-semibold space-x-[4vw] pt-[2vw] m-auto'>
-            <Link to='/login'>
-              <button type='button' className={tabCls}>
-                Student
-              </button>
-            </Link>
-            <Link to='/login/admin'>
-              <button type='button' className={activeCls}>
-                Admin
-              </button>
-            </Link>
-          </div>
+        <div className='flex justify-center items-center font-montserrat text-[2.3vw] md:text-[1.5vw] font-semibold space-x-[4vw] pt-[2vw] m-auto'>
+          <Link to='/login'>
+            <button type='button' className={activeCls}>
+              Student
+            </button>
+          </Link>
+          <Link to='/login/admin'>
+            <button type='button' className={tabCls}>
+              Admin
+            </button>
+          </Link>
         </div>
       </div>
       <div className='app items-center text-center box-shadow bg-gradient-to-br from-customBlue from-45% to-customLightBlue to-90% rounded-lg w-[75vw] md:w-[40vw] m-auto mb-[10vh]'>
         <h1 className='text-white justify-center text-[4vw] md:text-[2vw] font-montserrat font-bold pt-6'>
-          {"Admin's"} Portal
+          {"Student's"} Portal
         </h1>
         <form onSubmit={handleSubmit}>
           <InputForm
@@ -131,10 +136,10 @@ const LoginAdmin = () => {
               isValid || !isTouched ? 'hidden' : 'flex'
             }`}
           >
-            <ul className='list-disc list-inside text-[2vw] sm:text-[1.2vw] md:text-[1vw]'>
-              {errors.map((error, index) => (
+            <div>
+              {errors_with_key.map((error, index) => (
                 <div
-                  key={crypto.randomUUID()}
+                  key={error.id}
                   className='error text-customWhite text-left flex font-montserrat py-2 md:py-2 text-[2vw] sm:text-[1.2vw] md:text-[1vw] font-semibold'
                 >
                   <div>
@@ -142,12 +147,12 @@ const LoginAdmin = () => {
                   </div>
                   <div>
                     <ul>
-                      <li>{error}</li>
+                      <li>{error.msg}</li>
                     </ul>
                   </div>
                 </div>
               ))}
-            </ul>
+            </div>
           </div>
           <div className='flex flex-row justify-between p-[2vw] font-montserrat text-white text-[2.5vw] md:text-[1.2vw]'>
             <button
@@ -166,4 +171,4 @@ const LoginAdmin = () => {
   );
 };
 
-export default LoginAdmin;
+export default LoginStudent;
