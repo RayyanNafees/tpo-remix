@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "c349e957-be9a-4b56-aa20-1cf9ad982696",
+		"name": "API v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "15772795",
+		"_collection_link": "https://cybroz.postman.co/workspace/TPO~5f1f293f-b6ba-455d-aaf5-8b82f19a9bac/collection/15772795-c349e957-be9a-4b56-aa20-1cf9ad982696?action=share&source=collection_link&creator=15772795"
+	},
+	"item": [
+		{
+			"name": "Admin Auth",
+			"item": [
+				{
+					"name": "Approve User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjYxNDIyZGRlMzMyN2JjNzMyNzcyYTZhIiwiaWF0IjoxNzEyNTk1Nzc4LCJleHAiOjE3MTI1OTkzNzh9.oUh4_TqG7vBTiQX0oifi0JYeAaGbvKoNiK6z8SxIL1c"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authtoken",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjYxOTY4YTY1YmExMjRlZjNjNWZmZjdkIiwiaWF0IjoxNzEyOTQxMjU4LCJleHAiOjE3MTI5NDQ4NTh9._iY3sGm174PfKcDwtUysKX7f19wmqizDPscs9uGwBDg",
+								"type": "text"
+							}
+						],
+						"url": "{{baseURL}}/admin/approve-user/6619684b5ba124ef3c5fff76"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"nafees.rayyan@gmail.com\",\r\n    \"password\":\"AvyuktSony-Playstation$5$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/admin/login-admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"admin\",\r\n  \"email\": \"nafees.rayyan@gmail.com\",\r\n  \"password\": \"AvyuktSony-Playstation$5$\",\r\n  \"secret\": \"{{adminSecret}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/admin/register-admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Verify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"nafees.rayyan@gmail.com\",\r\n    \"otp\":\"495393\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/admin/verify-admin"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Avyukt Sony\",\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"email\": \"nafees.rayyan@gmail.com\",\r\n    \"password\": \"AvyuktSony-Playstation$5$\",\r\n    \"facultyNo\": \"23AEBEA229\",\r\n    \"enrollmentNo\": \"GP4519\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/users/register-user"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"nafees.rayyan@gmail.com\",\r\n    \"password\": \"AvyuktSony-Playstation$5$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/users/login-user"
+					},
+					"response": []
+				},
+				{
+					"name": "Verify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"nafees.rayyan@gmail.com\",\r\n    \"otp\": \"307250\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/users/verify-user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student CRUD",
+			"item": [
+				{
+					"name": "All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/students"
+					},
+					"response": []
+				},
+				{
+					"name": "Student Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/students/66198117ce2e52cb113a8805"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Student",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set('child_name', pm.variables.get('$randomFirstName'))\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authtoken",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjFiOTBkNzA3MzlmMTJlNmJiMmY0YzMiLCJpYXQiOjE3MTMwODI4NTQsImV4cCI6MTcxMzA4NjQ1NH0.Xcv80jZCpKSaMe4LLq0AEWwDxHLEtScInwD70CDzS2k",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"enrollment\": \"GP4519\",\r\n    \"facultyNo\": \"23AEBEA229\",\r\n    \"dob\": \"{{$randomDatePast}}\",\r\n    \"father_name\": \"{{$randomFullName}}\",\r\n    \"mother_name\": \"{{$randomFullName}}\",\r\n    \"yearOfStudy\": 2023,\r\n    \"passingYear\": 2027,\r\n    \"department\": \"Mechanical\",\r\n    \"mainSubject\": \"Automobile\",\r\n    \"hallOfResidence\": \"Sulaiman Hall\",\r\n    \"hostel\": \"Hasrat Mohani\",\r\n    \"roomNo\": \"A7\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"phoneNo\": 9193497273,\r\n    \"guardianPhoneNo\": 9193497273,\r\n    \"adhaarNo\": 929244550207,\r\n    \"nationality\": \"{{$randomCountry}}\",\r\n    \"permanentAddress\": \"{{$randomStreetAddress}}\",\r\n    \"correspAddress\": \"{{$randomStreetAddress}}\",\r\n    \"domicileProvince\": \"{{$randomStreetName}}\",\r\n    \"avatar\": \"{{$randomImageDataUri}}\", // profile pic,\r\n    \"sign\": \"{{$randomImageDataUri}}\",\r\n    \"thumbImpression\": \"{{$randomImageDataUri}}\",\r\n    \"resume\": \"{{$randomImageDataUri}}\",\r\n    \"experience\": \"{{$randomLoremParagraph}}\",\r\n    \"internships\": \"{{$randomLoremParagraph}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/students"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set('child_name', pm.variables.get('$randomFirstName'))\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authtoken",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjE5Njg0YjViYTEyNGVmM2M1ZmZmNzYiLCJpYXQiOjE3MTI5NDc0NTUsImV4cCI6MTcxMjk1MTA1NX0._ggos-4aoYzEBvZVxjdB3jPE0Nc6uUu-5_dOmbISBzQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"enrollment\": \"GP4500\",\r\n    \"facultyNo\": \"23AEBEA229\",\r\n    \"dob\": \"{{$randomDatePast}}\",\r\n    \"father_name\": \"{{$randomFullName}}\",\r\n    \"mother_name\": \"{{$randomFullName}}\",\r\n    \"yearOfStudy\": 2023,\r\n    \"passingYear\": 2027,\r\n    \"department\": \"Mechanical\",\r\n    \"mainSubject\": \"Automobile\",\r\n    \"hallOfResidence\": \"Sulaiman Hall\",\r\n    \"hostel\": \"Hasrat Mohani\",\r\n    \"roomNo\": \"A7\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"phoneNo\": 9193497273,\r\n    \"guardianPhoneNo\": 9193497273,\r\n    \"adhaarNo\": 929244550207,\r\n    \"nationality\": \"{{$randomCountry}}\",\r\n    \"permanentAddress\": \"{{$randomStreetAddress}}\",\r\n    \"correspAddress\": \"{{$randomStreetAddress}}\",\r\n    \"domicileProvince\": \"{{$randomStreetName}}\",\r\n    \"avatar\": \"{{$randomImageDataUri}}\", // profile pic,\r\n    \"sign\": \"{{$randomImageDataUri}}\",\r\n    \"thumbImpression\": \"{{$randomImageDataUri}}\",\r\n    \"resume\": \"{{$randomImageDataUri}}\",\r\n    \"experience\": \"{{$randomLoremParagraph}}\",\r\n    \"internships\": \"{{$randomLoremParagraph}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/students/66198117ce2e52cb113a8805"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authtoken",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjYxOTY4YTY1YmExMjRlZjNjNWZmZjdkIiwiaWF0IjoxNzEyOTQ3MTgwLCJleHAiOjE3MTI5NTA3ODB9.mKm21jjsZBR_j9wVmzyCuofRaxZZmjjrG3AEioTEk6c",
+								"type": "text"
+							}
+						],
+						"url": "{{baseURL}}/students/6619858872734ee217a3fc7a"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jobs CRUD",
+			"item": [
+				{
+					"name": "All Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/jobs"
+					},
+					"response": []
+				},
+				{
+					"name": "Job Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/jobs/66198041ce2e52cb113a87f3"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authtoken",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjYxOTY4YTY1YmExMjRlZjNjNWZmZjdkIiwiaWF0IjoxNzEyOTUxMjQwLCJleHAiOjE3MTI5NTQ4NDB9.sdrbrxroLgGHDDn9CSgX4xnbp8S-m-Eg7Dy0CVQEVuo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\": \"{{$randomCompanyName}}\",\r\n    \"applyStart\": \"{{$randomDateFuture}}\",\r\n    \"applyEnd\": \"{{$randomDateFuture}}\",\r\n    \"location\": \"{{$randomJobArea}}\",\r\n    \"logoLink\": \"{{$randomImageUrl}}\",\r\n    \"jobLink\": \"{{$randomUrl}}\",\r\n    \"applyLink\": \"{{$randomUrl}}\",\r\n    \"type\": \"{{$randomJobType}}\",\r\n    \"details\": \"{{$randomJobTitle}}\",\r\n    \"companyContact\": \"{{$randomPhoneNumber}}\",\r\n    \"ctc\": {{$randomInt}},\r\n    \"branch\":\"Food Tech\",\r\n    \"batchYears\": [2022, 2023]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/jobs"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authtoken",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjYxOTY4YTY1YmExMjRlZjNjNWZmZjdkIiwiaWF0IjoxNzEyOTQ3MTgwLCJleHAiOjE3MTI5NTA3ODB9.mKm21jjsZBR_j9wVmzyCuofRaxZZmjjrG3AEioTEk6c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\": \"{{$randomCompanyName}}\",\r\n    \"applyStart\": \"{{$randomDateFuture}}\",\r\n    \"applyEnd\": \"{{$randomDateFuture}}\",\r\n    \"location\": \"{{$randomJobArea}}\",\r\n    \"logoLink\": \"{{$randomImageUrl}}\",\r\n    \"jobLink\": \"{{$randomUrl}}\",\r\n    \"applyLink\": \"{{$randomUrl}}\",\r\n    \"type\": \"{{$randomJobType}}\",\r\n    \"details\": \"{{$randomJobTitle}}\",\r\n    \"companyContact\": \"{{$randomPhoneNumber}}\",\r\n    \"ctc\": {{$randomInt}},\r\n    \"branch\":\"Food Tech\",\r\n    \"batchYears\": [2022, 2023]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/jobs/66198041ce2e52cb113a87f3"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authtoken",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjYxOTY4YTY1YmExMjRlZjNjNWZmZjdkIiwiaWF0IjoxNzEyOTQ3MTgwLCJleHAiOjE3MTI5NTA3ODB9.mKm21jjsZBR_j9wVmzyCuofRaxZZmjjrG3AEioTEk6c",
+								"type": "text"
+							}
+						],
+						"url": "{{baseURL}}/jobs/6619803cce2e52cb113a87f1"
+					},
+					"response": []
+				},
+				{
+					"name": "Apply for Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authtoken",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjE0MWRhYjRiZWI5N2Y5YjczYTU4YTkiLCJpYXQiOjE3MTI1OTU1MTQsImV4cCI6MTcxMjU5OTExNH0.KvB27XUKvOjrOpOh8AYblAMKbk9IUmyWNjk82eg_77Q",
+								"type": "text"
+							}
+						],
+						"url": "{{baseURL}}/jobs/661424e592405d4fbf28c36d/apply"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
