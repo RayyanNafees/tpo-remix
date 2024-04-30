@@ -1,0 +1,49 @@
+.eye-icon {
+  position: absolute;
+}
+
+@media only screen and (min-width: 1401px) {
+  .eye-icon {
+    font-size: 1vw;
+    margin: -3.2vw;
+    margin-left: 15vw;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .eye-icon {
+    font-size: 1.5vw;
+    margin: -4vw;
+    margin-left: 15vw;
+  }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1199px) {
+  .eye-icon {
+    margin: -4.5vw;
+    margin-left: 15vw;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+  .eye-icon {
+    font-size: 1.5vw;
+    margin: -4.4vw;
+    margin-left: 15vw;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 767px) {
+  .eye-icon {
+    margin: -6vw;
+    margin-left: 30vw;
+  }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 500px) {
+  .eye-icon {
+    font-size: 3vw;
+    margin: -7.3vw;
+    margin-left: 28vw;
+  }
+}
